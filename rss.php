@@ -1,9 +1,4 @@
 <?php
-
-	$rss .='<?xml version="1.0" encoding="UTF-8"?>';
-	$rss .='<rss version ="2.0">';
-	$rss .='<channel>';
-
 	$conn = mysqli_connect("dbrojasdev.cjw42bnplsor.us-east-1.rds.amazonaws.com","admin","root1234","db_1820921") or die(mysqli_error($conn));
 
 	$sql = "SELECT * FROM tbl_viruses";
@@ -12,14 +7,12 @@
 	while($record = mysqli_fetch_assoc($query)){
 		extract($record);
 		
-		$rss.='<viruses>';
-		$rss.='<name>'. $v_name .'</name>';
-		$rss.='<desc>'. $v_desc.'</desc>';
-		$rss.='<cure>'. $v_cure .'</cure>';
-		$rss.='</viruses>';
+		$json = '{"virus":{"vname":$v_name},{"vdesc":$v_desc},{"vcure":$v_cure}}';
+		
+		$obj = json_decode($json);
+		print $obj->{'virus'};
+		
 	}
-	$rss.='</channel>';
-	$rss.='</rss>';
 	
 	echo $rss;
 ?>
