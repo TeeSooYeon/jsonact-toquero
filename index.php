@@ -6,12 +6,15 @@
 	
 	while($record = mysqli_fetch_assoc($query)){
 		extract($record);
+	<?php
+		$arr = array('vname'=> $v_name ,'vdesc'=> $v_desc,'vcure'=> $v_cure);
 		
-		$json = '{"virus":{"vname":$v_name},{"vdesc":$v_desc},{"vcure":$v_cure}}';
 		
-		$obj = json_decode($json);
+		$obj = json_encode($arr);
+	
+	?>
+		$disp = {"virus":$obj};
 		print $obj->{'virus'};
-		
 	}
 	
 	echo $rss;
