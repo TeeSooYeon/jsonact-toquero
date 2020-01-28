@@ -14,7 +14,8 @@
 	
 	?>
 		$disp = {"virus":$obj};
-		print $obj->{'virus'};
+		$view = json_decode($disp);
+		print $view->{'virus'};
 	}
 	
 ?>
