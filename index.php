@@ -17,5 +17,4 @@
 		print $obj->{'virus'};
 	}
 	
-	echo $rss;
 ?>
