@@ -1,22 +1,18 @@
 <?php
-$json = file_get_contents('http://school-temp.herokuapp.com/json_activity/rss.php');
-$data = json_decode($json,true);							
-$list = $data['jets'];									
+$json = file_get_contents('http://json-activity-toquero.herokuapp.com/jsonact-toquero/rss.php');
+$data = json_decode($json,true);
+$list = $data['Virus'];
 
 ?>
 <!DOCTYPE html>
 <html>
-	<body style="font-family:Trebuchet MS">
-		You are viewing in JSON mode || <a href="http://school-temp.herokuapp.com/"> XML Mode </a> / <a href="http://school-temp.herokuapp.com/json_activity/index.php"> JSON Mode </a>
 <?php
-foreach($list as $info){								// Make listing
+foreach($list as $info){
 ?>
-
-		<h3> <b> <?php echo $info['jet_Name']; ?> </b> - <?php echo $info['Manufacturer']; ?> </h3>
+		<h3>Virus Name:</h3><?php echo $info['v_name'];?>
 		<ul>
-			<li> Type: <?php echo $info['jet_type']; ?> </li>
-			<li> Aircraft Generation: <?php echo $info['Generation']; ?> </li>
-			<li> Country: <?php echo $info['Country']; ?> </li>
+			<li> Description: <?php echo $info['v_desc']; ?> </li>
+			<li> Cure: <?php echo $info['v_cure']; ?> </li>
 		</ul>
 	</body>
 </html>
