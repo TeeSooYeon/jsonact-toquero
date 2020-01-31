@@ -1,7 +1,7 @@
 <?php
 $json = file_get_contents('http://json-activity-toquero.herokuapp.com/jsonact-toquero/rss.php');
 $data = json_decode($json,true);
-$list = $data['Virus'];
+$list = $data['virus'];
 
 ?>
 <!DOCTYPE html>
