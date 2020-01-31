@@ -1,21 +1,25 @@
 <?php
-	$conn = mysqli_connect("dbrojasdev.cjw42bnplsor.us-east-1.rds.amazonaws.com","admin","root1234","db_1820921") or die(mysqli_error($conn));
+$json = file_get_contents('http://school-temp.herokuapp.com/json_activity/rss.php');
+$data = json_decode($json,true);							
+$list = $data['jets'];									
 
-	$sql = "SELECT * FROM tbl_viruses";
-	$query = mysqli_query($conn,$sql) or die (mysqli_error($conn));
-	
-	while($record = mysqli_fetch_assoc($query)){
-		extract($record);
-	<?php
-		$arr = array('vname'=> $v_name ,'vdesc'=> $v_desc,'vcure'=> $v_cure);
-		
-		
-		$obj = json_encode($arr);
-	
-	?>
-		$disp = {"virus":$obj};
-		$view = json_decode($disp);
-		print $view->{'virus'};
-	}
-	
+?>
+<!DOCTYPE html>
+<html>
+	<body style="font-family:Trebuchet MS">
+		You are viewing in JSON mode || <a href="http://school-temp.herokuapp.com/"> XML Mode </a> / <a href="http://school-temp.herokuapp.com/json_activity/index.php"> JSON Mode </a>
+<?php
+foreach($list as $info){								// Make listing
+?>
+
+		<h3> <b> <?php echo $info['jet_Name']; ?> </b> - <?php echo $info['Manufacturer']; ?> </h3>
+		<ul>
+			<li> Type: <?php echo $info['jet_type']; ?> </li>
+			<li> Aircraft Generation: <?php echo $info['Generation']; ?> </li>
+			<li> Country: <?php echo $info['Country']; ?> </li>
+		</ul>
+	</body>
+</html>
+<?php
+}
 ?>
