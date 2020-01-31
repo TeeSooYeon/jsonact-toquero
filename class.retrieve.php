@@ -11,7 +11,7 @@ class Get{
 	}
 	
 	public function virus_retrv(){
-		$sql = "SELECT * FROM tbl_virus";
+		$sql = "SELECT * FROM tbl_viruses";
 		$result = mysqli_query($this->db,$sql);
 		while($row = mysqli_fetch_assoc($result)){
 			$list[] = $row;
