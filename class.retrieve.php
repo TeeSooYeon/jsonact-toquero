@@ -10,7 +10,7 @@ class Get{
 		}
 	}
 	
-	public function get_jets(){
+	public function virus_retrv(){
 		$sql = "SELECT * FROM tbl_virus";
 		$result = mysqli_query($this->db,$sql);
 		while($row = mysqli_fetch_assoc($result)){
