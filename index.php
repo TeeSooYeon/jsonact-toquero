@@ -12,7 +12,7 @@ foreach($list as $info){
 		<h3>Virus Name:</h3><?php echo $info['v_name'];?>
 		<ul>
 			<li><h4> Description:</h4> <?php echo $info['v_desc']; ?> </li>
-			<li></h4> Cure:</h4> <?php echo $info['v_cure']; ?> </li>
+			<li><h4> Cure:</h4> <?php echo $info['v_cure']; ?> </li>
 		</ul>
 	</body>
 </html>
