@@ -6,6 +6,9 @@ $list = $data['virus'];
 ?>
 <!DOCTYPE html>
 <html>
+	<head>
+		<title>Json Activity by Hans</title>
+	</head>
 <?php
 foreach($list as $info){
 ?>
